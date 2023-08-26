@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ContainsDuplicateII {
+    // Time: O(n)
+    // Space: O(n)
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         boolean check = false;
         Map<Integer,Integer> map = new HashMap<>();
