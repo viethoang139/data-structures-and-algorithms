@@ -22,20 +22,45 @@ public class LongestCommonPrefix {
 //    }
 
     // solution 2
-    public String longestCommonPrefix(String[] strs) {
-        if(strs.length == 0){
-            return "";
-        }
-        String prefix = strs[0];
-        for(int i = 1 ; i < strs.length ; i++){
-            while(strs[i].indexOf(prefix) != 0){
-                prefix = prefix.substring(0, prefix.length() - 1);
-                if(prefix.isEmpty()){
-                    return "";
-                }
+//    public String longestCommonPrefix(String[] strs) {
+//        if(strs.length == 0){
+//            return "";
+//        }
+//        String prefix = strs[0];
+//        for(int i = 1 ; i < strs.length ; i++){
+//            while(strs[i].indexOf(prefix) != 0){
+//                prefix = prefix.substring(0, prefix.length() - 1);
+//                if(prefix.isEmpty()){
+//                    return "";
+//                }
+//            }
+//        }
+//        return prefix;
+//    }
+
+    // solution 3
+    // Time: O(m*n) m is length of smallest string, n = number of string int array
+    // Space: O(n)
+    public static String longestCommonPrefix(String[] strs) {
+        String ans = "";
+        int length = strs[0].length();
+        String str = "";
+        for(int i = 0 ; i < strs.length; i++){
+            if(strs[i].length() <= length){
+                length = strs[i].length();
+                str = strs[i];
             }
         }
-        return prefix;
+        for(int i = 0 ; i < str.length(); i++){
+            for(int j = 0 ; j < strs.length; j++){
+                if(str.charAt(i) !=
+                        strs[j].charAt(i)){
+                    return ans;
+                }
+            }
+            ans += str.charAt(i);
+        }
+        return ans;
     }
 
 }
